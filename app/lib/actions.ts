@@ -46,7 +46,6 @@ export async function updateInvoice( id : string, formData : FormData ) {
     });
 
     const amountInCents = amount * 100;
-    const date = new Date().toISOString().split('T')[0];
 
     await sql`
     UPDATE invoices
@@ -57,3 +56,5 @@ export async function updateInvoice( id : string, formData : FormData ) {
     revalidatePath('/dashboard/invoices');
     redirect( '/dashboard/invoices' );
 }
+
+// export async function deleteInvoice()
